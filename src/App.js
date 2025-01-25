@@ -29,8 +29,8 @@ function App() {
 
 	return (
 		<div className="select-none p-8 h-fit w-fit bg-gradient-to-br from-neutral-800 to-neutral-950">
-			<div className="flex flex-col gap-1 items-center mb-6">
-				<span className="font-heading text-3xl text-white font-light">
+			<div className="flex flex-col gap-0.5 items-center mb-6">
+				<span className="font-heading text-3xl text-white font-extralight">
 					<span className="font-black text-yellow-500">media</span>
 					mate
 				</span>
