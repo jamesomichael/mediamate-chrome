@@ -1,32 +1,10 @@
 import React, { useEffect, useState } from 'react';
-// import {
-// 	Button,
-// 	Container,
-// 	Typography,
-// 	FormControlLabel,
-// 	Switch,
-// } from '@mui/material';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './App.css';
-
-// const theme = createTheme({
-// 	palette: {
-// 		primary: {
-// 			main: '#1976d2',
-// 		},
-// 		secondary: {
-// 			main: '#dc004e',
-// 		},
-// 	},
-// });
 
 function App() {
 	const [currentUrl, setCurrentUrl] = useState('');
-	// const [audioOnly, setAudioOnly] = useState(false);
-	// const [playlist, setPlaylist] = useState(false);
 
 	useEffect(() => {
-		// Query the active tab to get its URL
 		window.chrome.tabs.query(
 			{ active: true, currentWindow: true },
 			(tabs) => {
@@ -37,25 +15,6 @@ function App() {
 		);
 	}, []);
 
-	// const sendMessage = () => {
-	// 	const message = {
-	// 		command: 'initiateDownload',
-	// 		options: {
-	// 			audioOnly,
-	// 			playlist,
-	// 			url: currentUrl,
-	// 		},
-	// 	};
-
-	// 	console.error(
-	// 		'sending message to background: ',
-	// 		JSON.stringify(message)
-	// 	);
-	// 	window.chrome.runtime.sendMessage(message, (response) => {
-	// 		console.log(response);
-	// 	});
-	// };
-
 	const sendMessage = () => {
 		const message = {
 			command: 'initiateDownloadV2',
@@ -63,11 +22,6 @@ function App() {
 				url: currentUrl,
 			},
 		};
-
-		console.error(
-			'sending message to background: ',
-			JSON.stringify(message)
-		);
 		window.chrome.runtime.sendMessage(message, (response) => {
 			console.log(response);
 		});
@@ -96,54 +50,6 @@ function App() {
 				</button>
 			</div>
 		</div>
-		// <ThemeProvider theme={theme}>
-		// 	<Container
-		// 		style={{
-		// 			display: 'flex',
-		// 			flexDirection: 'column',
-		// 			alignItems: 'center',
-		// 			justifyContent: 'center',
-		// 			// height: '100vh',
-		// 			// padding: '100px',
-		// 		}}
-		// 	>
-		// 		<Typography variant="h3" component="div" gutterBottom>
-		// 			mediamate
-		// 		</Typography>
-		// 		<Typography variant="h5" component="div" gutterBottom>
-		// 			Downloader
-		// 		</Typography>
-		// 		{/* <Typography variant="body1" gutterBottom>
-		// 			Current URL: {currentUrl}
-		// 		</Typography> */}
-		// 		<FormControlLabel
-		// 			control={
-		// 				<Switch
-		// 					checked={audioOnly}
-		// 					onChange={() => setAudioOnly(!audioOnly)}
-		// 				/>
-		// 			}
-		// 			label="Audio Only"
-		// 		/>
-		// 		<FormControlLabel
-		// 			control={
-		// 				<Switch
-		// 					checked={playlist}
-		// 					onChange={() => setPlaylist(!playlist)}
-		// 				/>
-		// 			}
-		// 			label="Playlist"
-		// 		/>
-		// 		<Button
-		// 			variant="contained"
-		// 			color="primary"
-		// 			onClick={sendMessage}
-		// 			style={{ marginTop: '20px' }}
-		// 		>
-		// 			Download
-		// 		</Button>
-		// 	</Container>
-		// </ThemeProvider>
 	);
 }
 
