@@ -30,13 +30,15 @@ function App() {
 	return (
 		<div className="select-none p-8 h-fit w-fit bg-gradient-to-br from-neutral-800 to-neutral-950">
 			<div className="flex flex-col gap-1 items-center mb-6">
-				<span className="text-4xl text-white font-light">
+				<span className="font-heading text-3xl text-white font-light">
 					<span className="font-black text-yellow-500">media</span>
 					mate
 				</span>
-				<span className="text-sm text-gray-300">Chrome Downloader</span>
+				<span className="font-heading text-sm text-gray-300">
+					Chrome Downloader
+				</span>
 			</div>
-			<div className="flex flex-col gap-4 items-center">
+			<div className="font-copy flex flex-col gap-4 items-center">
 				<input
 					value={currentUrl}
 					disabled
